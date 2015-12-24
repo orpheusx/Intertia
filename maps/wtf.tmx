@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="castlefloors" tilewidth="32" tileheight="32">
+  <image source="../LPC Base Assets/tiles/castlefloors.png" width="320" height="320"/>
+ </tileset>
+ <tileset firstgid="101" name="buckets" tilewidth="32" tileheight="32">
+  <image source="../LPC Base Assets/tiles/buckets.png" width="96" height="64"/>
+ </tileset>
+ <tileset firstgid="107" name="RED" tilewidth="32" tileheight="32">
+  <image source="../LPC Base Assets/tiles/RED.png" width="32" height="32"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="0" x="0.0625" y="0.0625" width="31.9375" height="31.9375"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <layer name="Carpet" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJwTZGBgECITCwOxNBDLkIllR/VTrF8ViNXIxOpADAAE4w4B
+  </data>
+ </layer>
+ <layer name="Buckets" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAcZNBJD71BBgN93DmQ4QcAXP4CcQ==
+  </data>
+ </layer>
+ <layer name="Colliders" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAcZNNJD71BNgN93DmQ4QcAbmICgw==
+  </data>
+ </layer>
+</map>

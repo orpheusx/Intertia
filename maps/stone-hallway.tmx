@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="8" tilewidth="32" tileheight="32" nextobjectid="1">
+ <properties>
+  <property name="unity:scale" value="0.01"/>
+ </properties>
+ <tileset firstgid="1" name="castlefloors" tilewidth="32" tileheight="32" tilecount="100">
+  <image source="../LPC Base Assets/tiles/castlefloors.png" width="320" height="320"/>
+ </tileset>
+ <tileset firstgid="101" name="cement" tilewidth="32" tileheight="32" tilecount="18">
+  <image source="../LPC Base Assets/tiles/cement.png" width="96" height="192"/>
+ </tileset>
+ <tileset firstgid="119" name="cementstair" tilewidth="32" tileheight="32" tilecount="20">
+  <image source="../LPC Base Assets/tiles/cementstair.png" width="160" height="128"/>
+ </tileset>
+ <tileset firstgid="139" name="castlewalls" tilewidth="32" tileheight="32" tilecount="180">
+  <image source="../LPC Base Assets/tiles/castlewalls.png" width="384" height="480"/>
+ </tileset>
+ <tileset firstgid="319" name="RED" tilewidth="32" tileheight="32" tilecount="1">
+  <image source="../LPC Base Assets/tiles/RED.png" width="32" height="32"/>
+ </tileset>
+ <layer name="floor" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjawGcUU4QBCmEXwQ==
+  </data>
+ </layer>
+ <layer name="wall" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJy7zMDAcAWILwPxNSh9GSp2FYqvocnB5EH4NRZ8H4gfMCDAI6gYNrW48Bsk/e/wqPuOA/9A0v8Lj7qRDgDLojRU
+  </data>
+ </layer>
+ <layer name="door" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAduA7ENyjQ/xiIn1Cg/z0Qf6BA/0gAAFXtBVY=
+  </data>
+ </layer>
+ <layer name="NoNav" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAO7BlRMamAWP3o6rDpIUbNKCAPAABdYgWB
+  </data>
+ </layer>
+</map>

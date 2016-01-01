@@ -3,7 +3,7 @@ guid: df7ef5653428830458e1ea5fb7c92053
 timeCreated: 1432599420
 licenseType: Free
 ModelImporter:
-  serializedVersion: 18
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: mesh_[00]_[07]
     100002: mesh_[02]_[09]
@@ -12,6 +12,12 @@ ModelImporter:
     100008: mesh_[04]_[34]
     100010: mesh_[05]_[38]
     100012: //RootNode
+    100014: mesh_0001
+    100016: mesh_0003
+    100018: mesh_0004
+    100020: mesh_0005
+    100022: mesh_0006
+    100024: mesh_0007
     400000: mesh_[00]_[07]
     400002: mesh_[02]_[09]
     400004: mesh_[03]_[09]
@@ -19,30 +25,60 @@ ModelImporter:
     400008: mesh_[04]_[34]
     400010: mesh_[05]_[38]
     400012: //RootNode
+    400014: mesh_0001
+    400016: mesh_0003
+    400018: mesh_0004
+    400020: mesh_0005
+    400022: mesh_0006
+    400024: mesh_0007
     2300000: mesh_[00]_[07]
     2300002: mesh_[02]_[09]
     2300004: mesh_[03]_[09]
     2300006: mesh_[04]_[05]
     2300008: mesh_[04]_[34]
     2300010: mesh_[05]_[38]
+    2300012: mesh_0001
+    2300014: mesh_0003
+    2300016: mesh_0004
+    2300018: mesh_0005
+    2300020: mesh_0006
+    2300022: mesh_0007
     3300000: mesh_[00]_[07]
     3300002: mesh_[02]_[09]
     3300004: mesh_[03]_[09]
     3300006: mesh_[04]_[05]
     3300008: mesh_[04]_[34]
     3300010: mesh_[05]_[38]
+    3300012: mesh_0001
+    3300014: mesh_0003
+    3300016: mesh_0004
+    3300018: mesh_0005
+    3300020: mesh_0006
+    3300022: mesh_0007
     4300000: mesh_[00]_[07]
     4300002: mesh_[02]_[09]
     4300004: mesh_[03]_[09]
     4300006: mesh_[04]_[05]
     4300008: mesh_[04]_[34]
     4300010: mesh_[05]_[38]
+    4300012: mesh_0001
+    4300014: mesh_0003
+    4300016: mesh_0004
+    4300018: mesh_0005
+    4300020: mesh_0006
+    4300022: mesh_0007
     11400000: mesh_[00]_[07]
     11400002: mesh_[02]_[09]
     11400004: mesh_[03]_[09]
     11400006: mesh_[04]_[05]
     11400008: mesh_[04]_[34]
     11400010: mesh_[05]_[38]
+    11400012: mesh_0001
+    11400014: mesh_0003
+    11400016: mesh_0004
+    11400018: mesh_0005
+    11400020: mesh_0006
+    11400022: mesh_0007
   materials:
     importMaterials: 0
     materialName: 0
@@ -50,12 +86,17 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 0
     bakeSimulation: 0
+    resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
@@ -79,7 +120,6 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 2
   importAnimation: 1
@@ -87,16 +127,18 @@ ModelImporter:
   humanDescription:
     human: []
     skeleton: []
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * NOTE: the RigidBody2D component we attached to the Player01 object includes a Gravity Scale property that 
+ * was causing the sprite to slowly move downwards whenever it was idle. Setting the property to 0 removed that behavior.
+ */
 public class PlayerMovement : MonoBehaviour {
 
 	Rigidbody2D rbody;
 	Animator anim;
-
-
+    
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D> ();
-		anim = GetComponent<Animator> ();
-
+		anim = GetComponent<Animator> (); 
 	}
 	
 	// Update is called once per frame
@@ -28,6 +30,8 @@ public class PlayerMovement : MonoBehaviour {
 			anim.SetBool("isWalking", false);
 		}
 
-		rbody.MovePosition(rbody.position + movementVector * Time.deltaTime);
+        float t = Time.deltaTime;
+        //Debug.Log("pos: " + rbody.position + ", mvec: " + movementVector + ", time:" + t );
+		rbody.MovePosition(rbody.position + movementVector * t);
 	}
 }

@@ -15,11 +15,19 @@ namespace Tiled2Unity
     // Concentrates on the Xml file being imported
     partial class ImportTiled2Unity
     {
-        public static readonly string ThisVersion = "0.9.10.0";
+        public static readonly string ThisVersion = "1.0.0.0";
 
-        public void XmlImported(string xmlPath)
+        // Called when Unity detects the *.tiled2unity.xml file needs to be (re)imported
+        public void ImportBegin(string xmlPath)
         {
-            XDocument xml = XDocument.Load(xmlPath);
+            // Normally, this is where we first create the XmlDocument for the whole import.
+            ImportBehaviour importBehaviour = ImportBehaviour.FindOrCreateImportBehaviour(xmlPath);
+            XDocument xml = importBehaviour.XmlDocument;
+            if (xml == null)
+            {
+                Debug.LogErrorFormat("GameObject {0} not successfully initialized. Is it left over from a previous import. Try removing from scene are re-importing {1}.", importBehaviour.gameObject.name, xmlPath);
+                return;
+            }
 
             CheckVersion(xmlPath, xml);
 
@@ -28,6 +36,15 @@ namespace Tiled2Unity
             ImportTexturesFromXml(xml);
             CreateMaterialsFromInternalTextures(xml);
             ImportMeshesFromXml(xml);
+        }
+
+        // Called when the import process has completed and we have a prefab ready to go
+        public void ImportFinished(string prefabPath)
+        {
+            // Get at the import behavour tied to this prefab and remove it from the scene
+            string xmlAssetPath = GetXmlImportAssetPath(prefabPath);
+            ImportBehaviour importBehaviour = ImportBehaviour.FindOrCreateImportBehaviour(xmlAssetPath);
+            importBehaviour.DestroyImportBehaviour();
         }
 
         private void CheckVersion(string xmlPath, XDocument xml)
@@ -53,7 +70,7 @@ namespace Tiled2Unity
 
                 // Save and import the texture asset
                 {
-                    string pathToSave = ImportUtils.GetTexturePath(name);
+                    string pathToSave = GetTextureAssetPath(name);
                     ImportUtils.ReadyToWrite(pathToSave);
                     File.WriteAllBytes(pathToSave, bytes);
                     AssetDatabase.ImportAsset(pathToSave, ImportAssetOptions.ForceSynchronousImport);
@@ -61,7 +78,7 @@ namespace Tiled2Unity
 
                 // Create a material if needed in prepartion for the texture being successfully imported
                 {
-                    string materialPath = ImportUtils.GetMaterialPath(name);
+                    string materialPath = GetMaterialAssetPath(name);
                     Material material = AssetDatabase.LoadAssetAtPath(materialPath, typeof(Material)) as Material;
                     if (material == null)
                     {
@@ -81,7 +98,7 @@ namespace Tiled2Unity
             foreach (var tex in texData)
             {
                 string texAssetPath = tex.Attribute("assetPath").Value;
-                string materialPath = ImportUtils.GetMaterialPath(texAssetPath);
+                string materialPath = GetMaterialAssetPath(texAssetPath);
 
                 Material material = AssetDatabase.LoadAssetAtPath(materialPath, typeof(Material)) as Material;
                 if (material == null)
@@ -108,14 +125,14 @@ namespace Tiled2Unity
                 // We're going to create/write a file that contains our mesh data as a Wavefront Obj file
                 // The actual mesh will be imported from this Obj file
 
-                string name = mesh.Attribute("filename").Value;
+                string fname = mesh.Attribute("filename").Value;
                 string data = mesh.Value;
 
                 // The data is in base64 format. We need it as a raw string.
                 string raw = ImportUtils.Base64ToString(data);
 
                 // Save and import the asset
-                string pathToMesh = "Assets/Tiled2Unity/Meshes/" + name;
+                string pathToMesh = GetMeshAssetPath(fname);
                 ImportUtils.ReadyToWrite(pathToMesh);
                 File.WriteAllText(pathToMesh, raw, Encoding.UTF8);
                 AssetDatabase.ImportAsset(pathToMesh, ImportAssetOptions.ForceSynchronousImport);
